@@ -232,3 +232,67 @@ footer {
     height: 50px;
     margin-top: -6px;
 }
+
+@media (max-width: 768px) {
+    
+    /* 1. Header e Barra de Pesquisa */
+    header {
+        height: auto;
+        padding: 15px 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #dv, #dexv {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #pesquisa {
+        padding: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #pesquisa input[type="text"], #search {
+        margin-left: 0;
+        margin-top: 0;
+        width: 80%;
+    }
+
+    #pesquisalabel {
+        margin-top: 5px;
+    }
+
+    #menu {
+        margin-left: 0;
+        margin-top: 0;
+        width: auto;
+    }
+
+    /* 2. Grelha de Vídeos em 1 Coluna */
+    #videos, #videos2, #videos3, #videos4 {
+        grid-template-columns: 1fr; /* 1 vídeo por linha */
+        margin-left: 0;
+        margin-top: 30px;
+        padding: 0 15px;
+        justify-items: center;
+    }
+
+    .video, #iconvideo {
+        width: 100%; /* Ajusta a largura ao ecrã */
+        max-width: 350px;
+        height: auto;
+    }
+
+    /* 3. Rodapé */
+    footer {
+        margin-top: 50px;
+        padding: 20px 10px;
+    }
+
+    #btn-inicio, #direitos-autorais {
+        margin-left: 0;
+    }
+}
