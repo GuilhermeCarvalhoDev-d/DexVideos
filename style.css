@@ -38,9 +38,19 @@ header{
     cursor: pointer;
     width: 200px;
     height: 50px;
-    
 }
 
+#botaologin{
+    background-color: transparent;
+    border: none;
+    margin-left: 50px;
+    margin-top: -24px;
+    cursor: pointer;
+}
+#imagemlogin{
+    width: 60px;
+    height: 60px;
+}
 #pesquisa{
     margin-top: -20px;
     display: flex;
@@ -151,7 +161,7 @@ header{
     margin-top: 15px;
 }
 
-footer {
+footer{
     display: flex;
     flex-direction: column;
     align-items: center;     
@@ -245,7 +255,7 @@ footer {
         gap: 12px;
     }
 
-    /* Título do site centralizado e sem sobreposição */
+
     #dv, #dexv {
         margin-left: 0;
         width: 100%;
@@ -254,7 +264,7 @@ footer {
         z-index: 1;
     }
 
-    /* 2. Ajuste do Container de Pesquisa */
+ 
     #pesquisa {
         width: 100%;
         display: flex;
@@ -264,11 +274,11 @@ footer {
         padding: 0;
     }
 
-    /* Campo de texto com tamanho controlado */
+   
     #pesquisa input[type="text"], #search {
         margin: 0;
-        width: 70%;            /* Reduz a largura para não ocupar a tela toda */
-        max-width: 250px;      /* Define um limite máximo em píxeis */
+        width: 70%;            
+        max-width: 250px;      
         box-sizing: border-box;
     }
 
@@ -282,7 +292,7 @@ footer {
         width: auto;
     }
 
-    /* 3. Grelha de Vídeos */
+
     #videos, #videos2, #videos3, #videos4 {
         grid-template-columns: 1fr;
         margin-left: 0;
@@ -297,13 +307,255 @@ footer {
         height: auto;
     }
 
-    /* 4. Rodapé */
+
     footer {
         margin-top: 40px;
         padding: 20px 10px;
     }
 
+   
+   #body2{
+    margin: 0px;
+   }
     #btn-inicio, #direitos-autorais {
         margin-left: 0;
     }
+}
+.pagina-login {
+    min-height: 20vh;
+}
+#logo{
+    display: flex;
+    color: aliceblue;
+    font-size: 35px;
+    text-align: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 40px 20px;
+    margin-left:45%;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
+    margin-left: 40%;
+    margin-top: 50px;
+}
+
+.login-box {
+    width: 100%;
+    background-color: #343434;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+.login-box h1 {
+    color: aliceblue;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+
+.subtitulo {
+    color: #ccc;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+
+.campo label {
+    color: aliceblue;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+
+.campo input {
+    width: 100%;
+    height: 45px;
+
+    padding: 0 15px;
+    background-color: #1b1b1b;
+    border: 2px solid #000;
+    border-radius: 8px;
+    color: aliceblue;
+    outline: none;
+    font-size: 14px;
+}
+
+.campo input::placeholder {
+    color: #888;
+}
+
+.campo input:focus {
+    border-color: aliceblue;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.opcoes label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ccc;
+}
+.opcoes input {
+    cursor: pointer;
+}
+
+
+.opcoes a {
+    color: aliceblue;
+
+    text-decoration: none;
+}
+
+
+.opcoes a:hover {
+    text-decoration: underline;
+}
+
+#botaol {
+    width: 100px;
+    height: 45px;
+    background-color: aliceblue;
+    color: #1b1b1b;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 35%;
+}
+
+.btn-login:hover {
+    background-color: #d7d7d7;
+    transform: translateY(-2px);
+}
+
+.divisor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+.divisor::before,
+.divisor::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background-color: #555;
+}
+.divisor span {
+    color: #999;
+
+    font-size: 12px;
+}
+.cadastro {
+    color: #bbb;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+.login-cadastro a {
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-cadastro a:hover {
+    text-decoration: underline;
+}
+
+#footerlog {
+        margin-top: 40px;
+        padding: 20px 10px;
+        margin-top: 100%;
+    }
+
+@media (max-width: 500px) {
+
+    .login-main {
+        padding: 30px 15px;
+    }
+
+    .login-box {
+        padding: 30px 25px;
+    }
+
+    .login-box h1 {
+        font-size: 26px;
+    }
+
+    .login-opcoes {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+}
+#imagemuser {
+    display: none;
+}
+
+.upload-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    padding: 0 15px;
+    background-color: #1b1b1b;
+    color: #888;
+    border: 2px solid #000;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.upload-imagem:hover {
+    color: aliceblue;
+    border-color: aliceblue;
 }

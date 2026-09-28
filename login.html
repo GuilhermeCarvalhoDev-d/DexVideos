@@ -1,0 +1,131 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>DexVideos - Login</title>
+</head>
+
+<body id="body2">
+
+    <header id="header2">
+        <button id="logo" onclick="window.location.href='index.html'">
+            <strong>DexVideos</strong>
+        </button>
+    </header>
+
+    <main>
+
+        <section class="login-container">
+
+            <div class="login-box">
+
+                <h1>Bem-vindo!</h1>
+                <p class="subtitulo">Entre na sua conta DexVideos</p>
+
+                <form id="loginForm">
+
+                    <div class="campo">
+                        <label for="user">Usuário</label>
+                        <input 
+                            type="text" 
+                            id="user" 
+                            placeholder="Digite seu usuário"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input 
+                            type="password" 
+                            id="senha" 
+                            placeholder="Digite sua senha"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="endereco">Endereço</label>
+                        <input 
+                            type="text" 
+                            id="endereco" 
+                            placeholder="Digite seu endereço"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="cpf">CPF</label>
+                        <input 
+                            type="text" 
+                            id="cpf" 
+                            placeholder="Digite seu CPF"
+                            required
+                        >
+                    </div>
+
+                  <div class="campo">
+                 <label for="imagemuser">Imagem</label>
+
+                 <label for="imagemuser" class="upload-imagem">
+                📷 Escolha uma imagem
+                    </label>
+
+                <input 
+                 type="file" 
+                id="imagemuser" 
+                accept="image/*"
+                required
+    >
+</div>
+
+                    <div class="opcoes">
+                        <label>
+                            <input type="checkbox" id="lembrar">
+                            Lembrar de mim
+                        </label>
+
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+
+                    <button type="submit" id="botaol">
+                        Entrar
+                    </button>
+
+                </form>
+
+                <div class="divisor">
+                    <span>ou</span>
+                </div>
+
+                <p class="cadastro">
+                    Ainda não possui uma conta?
+                    <a href="cadastro.html">Criar conta</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```

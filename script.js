@@ -98,3 +98,74 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarDadosVideos();
     configurarPesquisa();
 });
+
+
+
+const formulario = document.getElementById("loginForm");
+
+formulario.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    // Pegar os valores dos campos
+    const usuario = document.getElementById("user").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const endereco = document.getElementById("endereco").value;
+    const cpf = document.getElementById("cpf").value;
+
+    // Pegar a imagem
+    const imagem = document.getElementById("imagemuser");
+
+    // Verificar se uma imagem foi selecionada
+    if (imagem.files.length === 0) {
+        alert("Selecione uma imagem!");
+        return;
+    }
+
+    const arquivoImagem = imagem.files[0];
+
+    // Montar os dados
+    const dados =
+        "====================================\n" +
+        "        DEXVIDEOS - CADASTRO\n" +
+        "====================================\n\n" +
+
+        "Usuário: " + usuario + "\n" +
+        "E-mail: " + email + "\n" +
+        "Senha: " + senha + "\n" +
+        "Endereço: " + endereco + "\n" +
+        "CPF: " + cpf + "\n" +
+        "Imagem: " + arquivoImagem.name + "\n" +
+        "Tipo da imagem: " + arquivoImagem.type + "\n" +
+        "Tamanho da imagem: " + arquivoImagem.size + " bytes\n\n" +
+
+        "Data do cadastro: " +
+        new Date().toLocaleString("pt-BR") +
+        "\n\n" +
+
+        "====================================";
+
+    // Criar o arquivo TXT
+    const arquivoTXT = new Blob(
+        [dados],
+        { type: "text/plain;charset=utf-8" }
+    );
+
+    // Criar link temporário para download
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(arquivoTXT);
+
+    // Nome do arquivo baseado no usuário
+    link.download = usuario + "_dexvideos.txt";
+
+    // Fazer o download
+    link.click();
+
+    // Liberar o objeto
+    URL.revokeObjectURL(link.href);
+
+    alert("Cadastro salvo com sucesso!");
+
+});
