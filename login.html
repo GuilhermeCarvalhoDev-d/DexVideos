@@ -44,7 +44,7 @@
                         <input 
                             type="email" 
                             id="email" 
-                            placeholder="Digite seu e-mail"
+                            placeholder="seuemail@email.com"
                             required
                         >
                     </div>
@@ -64,7 +64,7 @@
                         <input 
                             type="text" 
                             id="endereco" 
-                            placeholder="Digite seu endereço"
+                            placeholder="Rua das flores,365"
                             required
                         >
                     </div>
@@ -72,26 +72,27 @@
                     <div class="campo">
                         <label for="cpf">CPF</label>
                         <input 
-                            type="text" 
+                            type="number" 
                             id="cpf" 
-                            placeholder="Digite seu CPF"
+                            placeholder="000.000.000-00"
+                            
                             required
                         >
-                    </div>
+             <div class="campo">
+    <label for="imagemuser">Imagem</label>
 
-                  <div class="campo">
-                 <label for="imagemuser">Imagem</label>
+    <label for="imagemuser" class="upload-imagem">
+        📷 Escolha uma imagem
+    </label>
 
-                 <label for="imagemuser" class="upload-imagem">
-                📷 Escolha uma imagem
-                    </label>
-
-                <input 
-                 type="file" 
-                id="imagemuser" 
-                accept="image/*"
-                required
+    <input 
+        type="file" 
+        id="imagemuser" 
+        accept="image/*"
+        required
     >
+
+    <img id="previewImagem" alt="Pré-visualização da imagem">
 </div>
 
                     <div class="opcoes">

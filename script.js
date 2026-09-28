@@ -103,21 +103,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const formulario = document.getElementById("loginForm");
 
-formulario.addEventListener("submit", function(event) {
+// Função para gerar SHA-256
+async function gerarHashSHA256(texto) {
+
+    const encoder = new TextEncoder();
+    const dados = encoder.encode(texto);
+
+    const hashBuffer = await crypto.subtle.digest("SHA-256", dados);
+
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    const hashHex = hashArray
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+    return hashHex;
+}
+
+
+formulario.addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
-    // Pegar os valores dos campos
+    // Dados do formulário
     const usuario = document.getElementById("user").value;
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
     const endereco = document.getElementById("endereco").value;
     const cpf = document.getElementById("cpf").value;
 
-    // Pegar a imagem
+    // Imagem
     const imagem = document.getElementById("imagemuser");
 
-    // Verificar se uma imagem foi selecionada
     if (imagem.files.length === 0) {
         alert("Selecione uma imagem!");
         return;
@@ -125,7 +142,10 @@ formulario.addEventListener("submit", function(event) {
 
     const arquivoImagem = imagem.files[0];
 
-    // Montar os dados
+    // Gerar hash SHA-256 da senha
+    const senhaHash = await gerarHashSHA256(senha);
+
+    // Dados que serão salvos
     const dados =
         "====================================\n" +
         "        DEXVIDEOS - CADASTRO\n" +
@@ -133,12 +153,12 @@ formulario.addEventListener("submit", function(event) {
 
         "Usuário: " + usuario + "\n" +
         "E-mail: " + email + "\n" +
-        "Senha: " + senha + "\n" +
+        "Senha SHA-256: " + senhaHash + "\n" +
         "Endereço: " + endereco + "\n" +
         "CPF: " + cpf + "\n" +
         "Imagem: " + arquivoImagem.name + "\n" +
         "Tipo da imagem: " + arquivoImagem.type + "\n" +
-        "Tamanho da imagem: " + arquivoImagem.size + " bytes\n\n" +
+        "Tamanho: " + arquivoImagem.size + " bytes\n\n" +
 
         "Data do cadastro: " +
         new Date().toLocaleString("pt-BR") +
@@ -146,26 +166,52 @@ formulario.addEventListener("submit", function(event) {
 
         "====================================";
 
-    // Criar o arquivo TXT
+
+    // Criar arquivo TXT
     const arquivoTXT = new Blob(
         [dados],
-        { type: "text/plain;charset=utf-8" }
+        {
+            type: "text/plain;charset=utf-8"
+        }
     );
 
-    // Criar link temporário para download
+
+    // Criar link para download
     const link = document.createElement("a");
 
     link.href = URL.createObjectURL(arquivoTXT);
 
-    // Nome do arquivo baseado no usuário
     link.download = usuario + "_dexvideos.txt";
 
-    // Fazer o download
     link.click();
 
-    // Liberar o objeto
+    // Liberar memória
     URL.revokeObjectURL(link.href);
 
-    alert("Cadastro salvo com sucesso!");
+    alert("Cadastro realizado com sucesso!");
+
+});
+
+const inputImagem = document.getElementById("imagemuser");
+const previewImagem = document.getElementById("previewImagem");
+
+inputImagem.addEventListener("change", function() {
+
+    const arquivo = this.files[0];
+
+    if (arquivo) {
+
+        const urlImagem = URL.createObjectURL(arquivo);
+
+        previewImagem.src = urlImagem;
+
+        previewImagem.style.display = "block";
+
+    } else {
+
+        previewImagem.style.display = "none";
+        previewImagem.src = "";
+
+    }
 
 });
